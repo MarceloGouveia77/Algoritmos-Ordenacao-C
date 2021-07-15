@@ -2,3 +2,5 @@ bin/
 obj/
 main.exe
 main.o
+a.out
+algoritmos.h.gch

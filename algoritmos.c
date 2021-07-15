@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <assert.h>
 #include "algoritmos.h"
 
 #define MAXSENHAS 4592
@@ -63,7 +64,7 @@ void trocarElementos(Senha **senha1, Senha **senha2){
 void bubbleSort(Senha **senhas, int tam){
     int i,j;
     for(i=tam-1; i>0; i--){
-        for(j=0; j < i; j++) //Faz trocas at´e posi¸c~ao i
+        for(j=0; j < i; j++) //Faz trocas atï¿½e posiï¿½c~ao i
             if(strcmp(senhas[j]->palavra, senhas[j+1]->palavra) == -1)
                 trocarElementos(senhas[j], senhas[j+1]);
         }
@@ -106,13 +107,21 @@ void shellSort(Senha **senha, int tam) {
         h = h/3;
     }
 }
+
 // ***************************** MERGE SORT *****************************
 void merge(Senha **senhas, int comeco, int meio, int fim) {
     int com1 = comeco, com2 = meio+1, comAux = 0;
     Senha** senhaAux;
     int tam = fim-comeco+1;
-    printf("tam = %d", tam);
+    
     senhaAux = (Senha**)malloc(tam * sizeof(Senha*));
+
+    for(int i=0; i<tam; i++){
+        senhaAux[i] = (Senha*)malloc(sizeof(Senha));
+		senhaAux[i]->tamanho = 0;
+		senhaAux[i]->frequencia = 0;
+		senhaAux[i]->palavra = (char*)malloc((tam+1) * sizeof(char));
+    }
 
     while(com1 <= meio && com2 <= fim){
 
@@ -188,7 +197,7 @@ void peneira(Senha **senhas, int raiz, int fundo) {
   }
 }
 
-void heapsort(Senha **senhas, int n) {
+void heapSort(Senha **senhas, int n) {
     Senha *tmp;
 	int i;
 

@@ -35,7 +35,7 @@ void obter_tempo(int inicio, int fim, char *algoritmo){
 }
 
 void iniciar_algoritmo(Senha **senhas, int tam, char *algoritmo){
-    LerSenhas(senhas, "senhas.txt"); // ler as senhas antes de começar a contar o tempo
+    LerSenhas(senhas, "senhas.txt"); // ler as senhas antes de comeï¿½ar a contar o tempo
     clock_t tempo_inicio = clock();
 
     if(strcmp("QuickSort", algoritmo) == 0) quick_struct(senhas, tam);
@@ -43,7 +43,7 @@ void iniciar_algoritmo(Senha **senhas, int tam, char *algoritmo){
     if(strcmp("bubbleSort", algoritmo) == 0) bubbleSort(senhas, tam);
     if(strcmp("insertionSort", algoritmo) == 0) insertionSort(senhas, tam);
     if(strcmp("shellSort", algoritmo) == 0) shellSort(senhas, tam);
-    if(strcmp("heapSort", algoritmo) == 0) heapsort(senhas, tam);
+    if(strcmp("heapSort", algoritmo) == 0) heapSort(senhas, tam);
     if(strcmp("mergeSort", algoritmo) == 0) mergeSort(senhas, 0, tam);
 
     clock_t tempo_fim = clock();
@@ -54,23 +54,20 @@ int main(){
     int n;
 	Senha** senhas;
 	senhas = (Senha**)malloc(MAXSENHAS * sizeof(Senha*));
+    
+    iniciar_algoritmo(senhas, MAXSENHAS, "QuickSort");
+    iniciar_algoritmo(senhas, MAXSENHAS, "shellSort");
+    iniciar_algoritmo(senhas, MAXSENHAS, "heapSort");
+    iniciar_algoritmo(senhas, MAXSENHAS, "bubbleSort");
+    iniciar_algoritmo(senhas, MAXSENHAS, "insertionSort");
+    iniciar_algoritmo(senhas, MAXSENHAS, "selectionSort");
 
-    //iniciar_algoritmo(senhas, MAXSENHAS, "QuickSort");
-    //iniciar_algoritmo(senhas, MAXSENHAS, "selectionSort");
-    //iniciar_algoritmo(senhas, MAXSENHAS, "bubbleSort");
-    //iniciar_algoritmo(senhas, MAXSENHAS, "insertionSort");
-    //iniciar_algoritmo(senhas, MAXSENHAS, "shellSort");
-    //iniciar_algoritmo(senhas, MAXSENHAS, "heapSort");
-    iniciar_algoritmo(senhas, MAXSENHAS, "mergeSort");
+    
+    //iniciar_algoritmo(senhas, MAXSENHAS, "mergeSort"); ESSE TA BUGADO
 
-	for (n = 0; n < MAXSENHAS; n++)
-        printf("%s - %d %d\n", senhas[n]->palavra, senhas[n]->tamanho, senhas[n]->frequencia);
+	//for (n = 0; n < MAXSENHAS; n++)
+    //    printf("%s - %d %d\n", senhas[n]->palavra, senhas[n]->tamanho, senhas[n]->frequencia);
 
-
-
-	for (n = 0; n < MAXSENHAS ; n++)
-		free(senhas[n]);
-	free(senhas);
 
 	return 0;
 }
