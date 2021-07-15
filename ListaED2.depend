@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1626351469 source:c:\users\nator\documents\ed2\listaed2\main.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"algoritmos.h"
+
+1626332000 c:\users\nator\documents\ed2\listaed2\algoritmos.h
+	<stdlib.h>
+
+1626351390 source:c:\users\nator\documents\ed2\listaed2\algoritmos.c
+	<stdio.h>
+	<string.h>
+	"algoritmos.h"
+
